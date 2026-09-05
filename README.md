@@ -412,7 +412,7 @@ to a defect ID, and marked so that a fix on the API side turns the test green.
 **Tamang Amish**
 
 - GitHub: [github.com/amishanita](https://github.com/amishanita)
-- Email: `<add your email address / メールアドレスを記入>`
+- Email: `your.email@example.com`
 
 ---
 
