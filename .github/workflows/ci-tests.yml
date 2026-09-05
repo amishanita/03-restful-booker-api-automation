@@ -1,0 +1,46 @@
+name: CI Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Nightly at 02:00 JST (17:00 UTC)
+    - cron: "0 17 * * *"
+  workflow_dispatch:
+
+jobs:
+  api-tests:
+    name: pytest (Python 3.11)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run API tests
+        env:
+          BASE_URL: ${{ vars.BASE_URL || 'https://restful-booker.herokuapp.com' }}
+          RB_USERNAME: ${{ secrets.RB_USERNAME || 'admin' }}
+          RB_PASSWORD: ${{ secrets.RB_PASSWORD || 'password123' }}
+        run: pytest -rxX
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-html-report
+          path: reports/pytest-html-report.html
+          retention-days: 30

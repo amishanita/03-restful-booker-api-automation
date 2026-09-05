@@ -1,0 +1,48 @@
+=== 2026-09-05 15:39:58 JST ===
+macOS 15.7.9
+Python 3.14.7
+Target: https://restful-booker.herokuapp.com
+
+============================= test session starts ==============================
+platform darwin -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0 -- /Users/user/Projects/restful-booker-api-portfolio/venv/bin/python3.14
+cachedir: .pytest_cache
+metadata: {'Python': '3.14.7', 'Platform': 'macOS-15.7.9-x86_64-i386-64bit-Mach-O', 'Packages': {'pytest': '9.1.1', 'pluggy': '1.6.0'}, 'Plugins': {'metadata': '3.1.1', 'html': '4.2.0'}}
+rootdir: /Users/user/Projects/restful-booker-api-portfolio
+configfile: pytest.ini
+testpaths: tests
+plugins: metadata-3.1.1, html-4.2.0
+collecting ... collected 25 items
+
+tests/test_auth.py::test_tc_auth_001_valid_credentials_return_token PASSED [  4%]
+tests/test_auth.py::test_tc_auth_002_wrong_password_issues_no_token PASSED [  8%]
+tests/test_auth.py::test_tc_auth_003_wrong_username_issues_no_token PASSED [ 12%]
+tests/test_auth.py::test_tc_auth_004_missing_username_rejected PASSED    [ 16%]
+tests/test_auth.py::test_tc_auth_005_missing_password_rejected PASSED    [ 20%]
+tests/test_auth.py::test_tc_auth_006_empty_body_rejected PASSED          [ 24%]
+tests/test_booking.py::test_tc_book_001_create_booking_with_full_payload PASSED [ 28%]
+tests/test_booking.py::test_tc_book_002_create_booking_with_required_fields_only PASSED [ 32%]
+tests/test_booking.py::test_tc_book_003_create_booking_with_multibyte_characters PASSED [ 36%]
+tests/test_booking.py::test_tc_book_004_create_booking_without_required_field XFAIL [ 40%]
+tests/test_booking.py::test_tc_book_005_get_booking_by_id PASSED         [ 44%]
+tests/test_booking.py::test_tc_book_006_get_all_booking_ids PASSED       [ 48%]
+tests/test_booking.py::test_tc_book_007_filter_bookings_by_name PASSED   [ 52%]
+tests/test_booking.py::test_tc_book_008_get_non_existent_booking PASSED  [ 56%]
+tests/test_delete_booking.py::test_tc_del_001_delete_existing_booking PASSED [ 60%]
+tests/test_delete_booking.py::test_tc_del_002_delete_without_authentication PASSED [ 64%]
+tests/test_delete_booking.py::test_tc_del_003_delete_with_invalid_token PASSED [ 68%]
+tests/test_delete_booking.py::test_tc_del_004_delete_non_existent_booking XFAIL [ 72%]
+tests/test_update_booking.py::test_tc_put_001_full_update_with_valid_token PASSED [ 76%]
+tests/test_update_booking.py::test_tc_put_002_full_update_without_authentication PASSED [ 80%]
+tests/test_update_booking.py::test_tc_put_003_full_update_non_existent_id XFAIL [ 84%]
+tests/test_update_booking.py::test_tc_patch_001_partial_update_single_field PASSED [ 88%]
+tests/test_update_booking.py::test_tc_patch_002_partial_update_multiple_fields PASSED [ 92%]
+tests/test_update_booking.py::test_tc_patch_003_partial_update_without_authentication PASSED [ 96%]
+tests/test_update_booking.py::test_tc_patch_004_partial_update_non_existent_id XFAIL [100%]
+
+- Generated html report: file:///Users/user/Projects/restful-booker-api-portfolio/reports/pytest-html-report.html -
+=========================== short test summary info ============================
+XFAIL tests/test_booking.py::test_tc_book_004_create_booking_without_required_field - BUG-002: a missing required field returns 500 Internal Server Error where 400 Bad Request is expected
+XFAIL tests/test_delete_booking.py::test_tc_del_004_delete_non_existent_booking - BUG-004: deleting a non-existent ID returns 405 Method Not Allowed where 404 Not Found is expected
+XFAIL tests/test_update_booking.py::test_tc_put_003_full_update_non_existent_id - BUG-004: a write to a non-existent ID returns 405 Method Not Allowed where 404 Not Found is expected
+XFAIL tests/test_update_booking.py::test_tc_patch_004_partial_update_non_existent_id - BUG-004: a write to a non-existent ID returns 405 Method Not Allowed where 404 Not Found is expected
+======================== 21 passed, 4 xfailed in 11.55s ========================

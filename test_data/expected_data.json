@@ -1,0 +1,46 @@
+{
+  "status_codes": {
+    "auth_success": 200,
+    "auth_bad_credentials": 200,
+    "create_booking": 200,
+    "get_booking": 200,
+    "get_booking_not_found": 404,
+    "update_booking": 200,
+    "update_unauthorised": 403,
+    "update_not_found": 405,
+    "delete_success": 201,
+    "delete_unauthorised": 403,
+    "delete_not_found": 405,
+    "health_check": 201
+  },
+  "create_booking_response": {
+    "bookingid": "integer",
+    "booking": {
+      "firstname": "string",
+      "lastname": "string",
+      "totalprice": "number",
+      "depositpaid": "boolean",
+      "bookingdates": {
+        "checkin": "YYYY-MM-DD",
+        "checkout": "YYYY-MM-DD"
+      },
+      "additionalneeds": "string (optional)"
+    }
+  },
+  "auth_success_response": {
+    "token": "string, 15 characters"
+  },
+  "auth_failure_response": {
+    "reason": "Bad credentials"
+  },
+  "required_fields": [
+    "firstname",
+    "lastname",
+    "totalprice",
+    "depositpaid",
+    "bookingdates"
+  ],
+  "optional_fields": [
+    "additionalneeds"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "missing_firstname": {
+    "lastname": "Tamang",
+    "totalprice": 500,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2026-10-01",
+      "checkout": "2026-10-05"
+    },
+    "additionalneeds": "Breakfast"
+  },
+  "missing_lastname": {
+    "firstname": "Amish",
+    "totalprice": 500,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2026-10-01",
+      "checkout": "2026-10-05"
+    }
+  },
+  "missing_bookingdates": {
+    "firstname": "Amish",
+    "lastname": "Tamang",
+    "totalprice": 500,
+    "depositpaid": true,
+    "additionalneeds": "Breakfast"
+  },
+  "empty_payload": {},
+  "wrong_type_totalprice": {
+    "firstname": "Amish",
+    "lastname": "Tamang",
+    "totalprice": "not-a-number",
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2026-10-01",
+      "checkout": "2026-10-05"
+    }
+  },
+  "checkout_before_checkin": {
+    "firstname": "Amish",
+    "lastname": "Tamang",
+    "totalprice": 500,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2026-10-10",
+      "checkout": "2026-10-01"
+    }
+  },
+  "invalid_date_format": {
+    "firstname": "Amish",
+    "lastname": "Tamang",
+    "totalprice": 500,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "01-10-2026",
+      "checkout": "05-10-2026"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+# Core test framework / テストフレームワーク
+pytest>=7.0.0
+requests>=2.28.0
+
+# Reporting / レポート出力
+pytest-html>=3.2.0
+
+# Validation and configuration / 検証と設定
+jsonschema>=4.0.0
+python-dotenv>=1.0.0
